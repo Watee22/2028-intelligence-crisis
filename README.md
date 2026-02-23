@@ -59,16 +59,26 @@ To validate the feasibility of this scenario, we modeled the compute requirement
 *   **The Workload**: A full-time AI agent replacement requires significantly more tokens than a human reads. It involves Chain-of-Thought (CoT), self-correction, drafting, and multi-agent coordination.
     *   *Estimate*: **500,000 tokens per agent, per day**. (Citrini Research estimates 400k/day for *consumer* agents; professional agents are higher volume).
 *   **Calculation**:
-    $$ 300,000,000 \text{ workers} \times 500,000 \text{ tokens/day} = 150 \times 10^{12} \text{ tokens/day} $$
+    ```text
+    300,000,000 workers * 500,000 tokens/day = 150,000,000,000,000 (150T) tokens/day
+    ```
 
-#### 2. Energy Consumption: ~6 TWh / Year (Shockingly Low)
-*   **Efficiency**: Based on 2026 hardware standards (e.g., Nvidia B200 / Blackwell architecture using FP4/FP8 quantization), inference efficiency is approximately **0.4 Joules per Token**.
-*   **Daily Energy**:
-    $$ 150T \text{ tokens} \times 0.4 \text{ J} = 60 \text{ Terajoules/day} $$
-*   **Annual Electricity**:
-    $$ \frac{60 \times 10^{12} \text{ J}}{3.6 \times 10^6 \text{ J/kWh}} \approx 16.6 \text{ GWh/day} \times 365 \approx 6.06 \text{ TWh/year} $$
+#### 2. Energy Consumption: 6 ~ 23 TWh / Year
+*   **Efficiency Assumptions**:
+    *   **Scenario A (Optimistic/Efficiency)**: Nvidia Blackwell architecture using **FP4/FP8 quantization** (approx. 0.4 Joules/Token). This assumes specialized models for specific tasks.
+    *   **Scenario B (Conservative/High-Fidelity)**: Using **FP16** or larger MoE models for complex "System 2" reasoning (approx. 1.5 Joules/Token).
+*   **Calculation**:
+    ```text
+    Scenario A (0.4 J/Token):
+    Daily Energy: 150T * 0.4 J = 60 Terajoules (TJ)
+    Annual Electricity: (60 TJ / 3.6 MJ/kWh) * 365 days ≈ 6.08 TWh / Year
+
+    Scenario B (1.5 J/Token):
+    Daily Energy: 150T * 1.5 J = 225 Terajoules (TJ)
+    Annual Electricity: (225 TJ / 3.6 MJ/kWh) * 365 days ≈ 22.8 TWh / Year
+    ```
 *   **Context**: Global data center power consumption in 2026 is estimated at **~1,050 TWh**.
-    *   *Conclusion*: Replacing the entire cognitive output of the human race requires **less than 0.6%** of the world's current data center power capacity. The "energy crisis" is about *training* models, not *running* them.
+    *   *Conclusion*: Even in the high-fidelity scenario (22.8 TWh), replacing the entire cognitive output of the human race requires only **~2%** of the world's current data center power capacity. The "energy crisis" is about *training* models, not *running* them.
 
 #### 3. Hardware Requirements: ~500,000 GPUs
 *   **Throughput**: A single H100/B200 equivalent can process ~3 billion tokens/day in a dedicated inference setup (conservative estimate).
