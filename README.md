@@ -50,12 +50,32 @@ Trillions of dollars in enterprise value are built on human "friction" (laziness
 *   **Real Estate**: Buyer agents (3% fee) are replaced by AI that analyzes MLS data instantly.
 *   **Payments**: Agents bypass Visa/Mastercard (2-3% fees) in favor of **Stablecoins (USDC on Solana/Base)** for near-zero cost settlement.
 
-### C. The Scale of Replacement (The Math)
-To replace the core intellectual output of 300 million global knowledge workers:
-*   **Token Demand**: ~150 Trillion Tokens / Day.
-*   **Energy Requirement**: ~6 TWh / Year (less than 1% of global data center power).
-    *   *Insight*: Energy is **not** the constraint for *inference* (doing the work). It is the constraint for *training* (getting smarter) and *availability* (grid bottlenecks).
-*   **Hardware**: ~500,000 H100/B200 equivalents. (Already deployed by Meta/Microsoft/Google alone in 2025).
+### C. The Scale of Replacement (The Data & Math)
+
+To validate the feasibility of this scenario, we modeled the compute requirements for a total replacement of the global knowledge workforce.
+
+#### 1. Token Demand: 150 Trillion / Day
+*   **The Workforce**: We assume ~300 million core knowledge workers globally (spanning OECD nations + Tier 1 cities in China/India).
+*   **The Workload**: A full-time AI agent replacement requires significantly more tokens than a human reads. It involves Chain-of-Thought (CoT), self-correction, drafting, and multi-agent coordination.
+    *   *Estimate*: **500,000 tokens per agent, per day**. (Citrini Research estimates 400k/day for *consumer* agents; professional agents are higher volume).
+*   **Calculation**:
+    $$ 300,000,000 \text{ workers} \times 500,000 \text{ tokens/day} = 150 \times 10^{12} \text{ tokens/day} $$
+
+#### 2. Energy Consumption: ~6 TWh / Year (Shockingly Low)
+*   **Efficiency**: Based on 2026 hardware standards (e.g., Nvidia B200 / Blackwell architecture using FP4/FP8 quantization), inference efficiency is approximately **0.4 Joules per Token**.
+*   **Daily Energy**:
+    $$ 150T \text{ tokens} \times 0.4 \text{ J} = 60 \text{ Terajoules/day} $$
+*   **Annual Electricity**:
+    $$ \frac{60 \times 10^{12} \text{ J}}{3.6 \times 10^6 \text{ J/kWh}} \approx 16.6 \text{ GWh/day} \times 365 \approx 6.06 \text{ TWh/year} $$
+*   **Context**: Global data center power consumption in 2026 is estimated at **~1,050 TWh**.
+    *   *Conclusion*: Replacing the entire cognitive output of the human race requires **less than 0.6%** of the world's current data center power capacity. The "energy crisis" is about *training* models, not *running* them.
+
+#### 3. Hardware Requirements: ~500,000 GPUs
+*   **Throughput**: A single H100/B200 equivalent can process ~3 billion tokens/day in a dedicated inference setup (conservative estimate).
+*   **Raw Need**: $150T / 3B = 50,000$ cards (at 100% utilization).
+*   **Real World Need**: adjusting for latency requirements, peak load redundancy (10x factor), and memory bandwidth constraints:
+    *   **Total Inventory Needed**: **~500,000 H100/B200 equivalents**.
+*   **Reality Check**: Meta (Facebook) alone acquired ~350,000 H100s by the end of 2024. The global stock of compute in 2026 is already multiples of what is required to replace human labor.
 
 **Conclusion**: The hardware exists. The software exists. The displacement is now purely a function of implementation speed.
 
