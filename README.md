@@ -1,5 +1,7 @@
 # THE 2028 GLOBAL INTELLIGENCE CRISIS: A Macroeconomic Scenario Analysis (Feb 2026 Perspective)
 
+> **[中文版本 (Chinese Version)](./README_CN.md)**
+
 > **"What if our AI bullishness continues to be right... and what if that’s actually bearish?"**
 > — *Based on Citrini Research & OpenClaw Scenario Modeling (Feb 2026)*
 
